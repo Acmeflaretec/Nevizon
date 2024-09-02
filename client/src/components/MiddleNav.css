@@ -1,0 +1,104 @@
+.middle-nav {
+  background-color: #ffffff; /* White background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0;
+  border-bottom: 2px solid #ff0000; /* Red border at the bottom */
+}
+
+.logo {
+  height: 80px;
+  width: auto;
+}
+
+.navbar-nav .nav-link {
+  color: #ff0000; /* Red text */
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: #cc0000; /* Darker red on hover/focus */
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+}
+
+.nav-icon-link {
+  color: #ff0000; /* Red icon color */
+  font-size: 1.2rem;
+  margin-right: 1rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-icon-link:hover {
+  color: #cc0000; /* Darker red on hover */
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #ff0000; /* Red badge */
+  color: white;
+  font-size: 0.7rem;
+  padding: 0.25em 0.4em;
+  border-radius: 50%;
+}
+
+.login-btn {
+  background-color: #ff0000; /* Red button */
+  border-color: #ff0000; /* Red border */
+  color: #ffffff; /* White text */
+  padding: 0.375rem 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.login-btn:hover,
+.login-btn:focus {
+  background-color: #cc0000; /* Darker red on hover/focus */
+  border-color: #cc0000; /* Darker red border */
+}
+
+.mobile-action {
+  display: none;
+}
+
+@media (max-width: 991.98px) {
+  .nav-actions {
+    margin-top: 1rem;
+  }
+  
+  .nav-icon-link {
+    margin-right: 1.5rem;
+  }
+  
+  .pc-action {
+    display: none;
+  }
+
+  .mobile-action {
+    display: flex;
+  }
+}
+
+.middle-nav .profile-icon {
+  border-radius: 50%;
+  background-color: #ff0000; /* Red background for profile icon */
+  border: none;
+  position: relative;
+  color: #ffffff; /* White icon color */
+}
+
+.middle-nav .profile-icon .fas {
+  margin: 0;
+}
+
+.middle-nav .profile-icon::after {
+  display: none; /* Hide the dropdown arrow */
+}

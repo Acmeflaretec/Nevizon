@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@font-face {
+  font-family: 'BlockBerthold';
+  src: url('blockberthold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.banner {
+  position: relative;
+  background-color: #ffffff; /* White background */
+  padding: 6rem 0;
+  overflow: hidden;
+}
+
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to right, #ff0000, #cc0000); /* Red gradient */
+  z-index: 1;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff; /* White text */
+}
+
+.banner-title {
+  font-family: 'BlockBerthold', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.banner-title .highlight {
+  color: #ff0000; /* Red highlight */
+}
+
+.banner-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 80%;
+  color: #ffffff; /* White subtitle text */
+}
+
+.ban-button {
+  font-family: 'Poppins', sans-serif;
+}
+
+.btn-primary {
+  background-color: #ffffff; /* Red button */
+  border-color: #ffffff; /* Red border */
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  color: black; /* White text */
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: #dc9797; /* Darker red on hover/focus */
+  border-color: #cc0000; /* Darker red border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner-image-container {
+  position: relative;
+  z-index: 2;
+}
+
+.banner-image {
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 991.98px) {
+  .banner {
+    padding: 4rem 0;
+  }
+
+  .banner-title {
+    font-size: 2.5rem;
+  }
+
+  .banner-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .banner-image-container {
+    margin-top: 3rem;
+  }
+}

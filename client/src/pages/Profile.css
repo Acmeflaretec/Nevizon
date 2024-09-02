@@ -1,0 +1,45 @@
+/* Profile.css */
+
+/* Main profile page background */
+.profile-page {
+  background-color: #fff; /* White background for the entire page */
+}
+
+/* Sidebar styling */
+.profile-sidebar {
+  border: 1px solid #dc3545; /* Red border for sidebar */
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Sidebar nav links */
+.profile-sidebar .nav-link {
+  color: #dc3545; /* Red text color for nav links */
+  border-radius: 0;
+  padding: 0.75rem 1.25rem;
+}
+
+/* Hover state for nav links */
+.profile-sidebar .nav-link:hover {
+  background-color: #f8d7da; /* Light red background on hover */
+}
+
+/* Active state for nav links */
+.profile-sidebar .nav-link.active {
+  background-color: #dc3545; /* Red background for active nav link */
+  color: #fff; /* White text color for active link */
+}
+
+/* Card styling */
+.card {
+  border: 1px solid #dc3545; /* Red border for cards */
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Profile image styling */
+.img-thumbnail {
+  padding: 0.25rem;
+  background-color: #fff; /* White background for image thumbnail */
+  border: 1px solid #dc3545; /* Red border for image thumbnail */
+  border-radius: 50%;
+  max-width: 150px;
+}
