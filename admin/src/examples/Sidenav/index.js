@@ -108,9 +108,9 @@ function Sidenav({ color, brand, brandName, routes, ...rest }) {
           </Typography>
         </Box>
         <Box component={NavLink} to="/" display="flex" alignItems="center">
-          {brand && (
+          {/* {brand && (
             <Box component="img" src={brand} alt=" Logo" width="2rem" mr={0.25} />
-          )}
+          )} */}
           <Box
             width={!brandName && "100%"}
             sx={(theme) => sidenavLogoLabel(theme, { miniSidenav })}

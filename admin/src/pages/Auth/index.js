@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import { useController } from 'context'
 import { setAuth } from 'context'
 import toast from 'react-hot-toast'
-import image from 'assets/images/logo-ct.png'
+import image from 'assets/images/android-chrome-512x512.png'
 
 const Login = () => {
     const [controller, dispatch] = useController();
@@ -31,7 +31,7 @@ const Login = () => {
             title="Sign In"
             description="Enter your email and password to sign in"
             illustration={{
-                title: "KGECO",
+                title: "NEVIZON",    
                 description:
                     "Admin Management Console",
                 image

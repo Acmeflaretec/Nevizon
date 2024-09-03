@@ -229,7 +229,7 @@ const sendRegistrationOtp = async (req, res) => {
     // Send email with OTP
     transporter.sendMail(
       {
-        from: 'shahilmohammed7@gmail.com',
+        from: 'jhagencies.pmna@gmail.com',
         to: email,
         subject: 'Your OTP for verification',
         text: `Your OTP is: ${otpGen}`, // Use otpGen instead of otp to send the correct OTP
@@ -270,7 +270,7 @@ const sendOtp = async (req, res) => {
 
     // Send email with OTP
     transporter.sendMail({
-      from: 'shahilmohammed7@gmail.com',
+      from: 'jhagencies.pmna@gmail.com',
       to: email,
       subject: 'Your OTP for verification',
       text: `Your OTP is: ${otp}`
@@ -328,8 +328,8 @@ function generateOTP() {
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: 'Kgecoproductss@gmail.com',
-    pass: 'ofbi oznx khkt knrc'
+    user: 'jhagencies.pmna@gmail.com',
+    pass: 'axbd wjms jrii fwjn'
   }
 });
 
