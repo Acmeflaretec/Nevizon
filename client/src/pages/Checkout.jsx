@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axiosInstance from "../axios";
-import { FaRegTrashAlt, FaLock, FaPlus,FaMinus } from "react-icons/fa";
+import { FaRegTrashAlt, FaLock, FaPlus, FaMinus } from "react-icons/fa";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import Swal from "sweetalert2";
 import { Modal, Button, Form } from "react-bootstrap";
@@ -18,7 +18,7 @@ const Checkout = () => {
   );
   const [paymentOption, setPaymentOption] = useState("razorpay");
   const [cartData, setCartData] = useState([]);
-  const [filteredCartData,setFilteredCartData] = useState([])
+  const [filteredCartData, setFilteredCartData] = useState([])
 
   const [salePriceTotal, setSalePriceTotal] = useState(0);
   const [proPriceTotal, setProPriceTotal] = useState(0);
@@ -90,12 +90,12 @@ const Checkout = () => {
 
       const items = response?.data?.data?.item;
 
-      const filteredItems = items.filter((obj)=>{
+      const filteredItems = items.filter((obj) => {
 
-        return obj.productId.isAvailable !=false
-  
+        return obj.productId.isAvailable != false
+
       })
-      
+
       setFilteredCartData(filteredItems)
 
       // Calculate the total sale price
@@ -125,7 +125,7 @@ const Checkout = () => {
 
   const handleRemoveItem = async (itemId) => {
     let urlQuery = `/user/removeFromCart/${itemId}`;
-  
+
     try {
       const response = await axiosInstance.patch(urlQuery);
       const updatedFilteredCartItems = filteredCartData.filter(
@@ -135,17 +135,17 @@ const Checkout = () => {
         (acc, item) => acc + item.productId.price * item.qty,
         0
       );
-  
+
       setFilteredCartData(updatedFilteredCartItems);
-  
+
       // Calculate the total sale price
       const totalSalePrice = calculateTotalSalePrice(updatedFilteredCartItems);
       setSalePriceTotal(totalSalePrice);
-  
+
       // Calculate the total  price
       const totalProPrice = calculateTotalProPrice(updatedFilteredCartItems);
       setProPriceTotal(totalProPrice);
-  
+
       if (updatedFilteredCartItems?.length === 0) {
         navigate("/");
       }
@@ -153,7 +153,7 @@ const Checkout = () => {
       console.error("Error removing item from wishlist:", error);
     }
   };
-  
+
   // const handleRemoveItem = async (itemId) => {
   //   let urlQuery = `/user/removeFromCart/${itemId}`;
 
@@ -175,7 +175,7 @@ const Checkout = () => {
   //     const filteredItems = updatedCartItems.filter((obj)=>{
 
   //       return obj.productId.isAvailable !=false
-  
+
   //     })
 
   //     // Calculate the total sale price
@@ -241,14 +241,14 @@ const Checkout = () => {
     // } else if (operation === "decrement") {
     //   QtyApi -= 1;
     // }
-  
+
     // Optimistically update the UI
     const updatedFilteredCartData = [...filteredCartData];
     updatedFilteredCartData[index].qty = QtyApi;
     setFilteredCartData(updatedFilteredCartData);
-  
+
     setLoadingIndex(index); // Set loading state
-  
+
     try {
       if (
         item?.qty <= item?.productId?.stock &&
@@ -259,14 +259,14 @@ const Checkout = () => {
           qty: QtyApi,
           productId: item?.productId._id,
         });
-      
+
       } else if (item?.qty > 1 && operation === "decrement") {
         QtyApi -= 1;
         const response = await axiosInstance.patch("/user/updateQty", {
           qty: QtyApi,
           productId: item?.productId._id,
         });
-       
+
       }
     } catch (error) {
       // Revert the state change if the API call fails
@@ -279,7 +279,7 @@ const Checkout = () => {
       await fetchData();
     }
   };
-  
+
 
   React.useEffect(() => {
     const script = document.createElement("script");
@@ -333,15 +333,15 @@ const Checkout = () => {
 
   const placeOrder = async () => {
 
-    const totalAmountToPay = salePriceTotal < 299 
-    ? salePriceTotal + deliveryCharge 
-    : salePriceTotal;
+    const totalAmountToPay = salePriceTotal < 299
+      ? salePriceTotal + deliveryCharge
+      : salePriceTotal;
 
     if (paymentOption === "cod") {
       handlePaymentSuccess();
     } else if (paymentOption === "razorpay") {
       const options = {
-        key: "rzp_test_wNhVz81BFxrIrL",
+        key: import.meta.env.VITE_API_RAZORPAYID,
         amount: parseInt(totalAmountToPay) * 100, // amount in paisa
         currency: "INR",
         name: "Nevizon",
@@ -417,9 +417,9 @@ const Checkout = () => {
   // static
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [showAddressModal, setShowAddressModal] = useState(false);
- 
-  
-  
+
+
+
 
   return (
     <>
@@ -472,11 +472,10 @@ const Checkout = () => {
                           {addressDatas.map((address) => (
                             <div key={address._id} className="col-md-6">
                               <div
-                                className={`border rounded p-3 h-100 ${
-                                  selectedAddress === address
+                                className={`border rounded p-3 h-100 ${selectedAddress === address
                                     ? "border-danger"
                                     : ""
-                                }`}
+                                  }`}
                               >
                                 <p className="mb-1">
                                   <strong>
@@ -492,11 +491,10 @@ const Checkout = () => {
                                 <p className="mb-1">{address.country}</p>
                                 <p className="mb-3">Phone: {address.mobile}</p>
                                 <button
-                                  className={`btn ${
-                                    orderAddress === address
+                                  className={`btn ${orderAddress === address
                                       ? "btn-danger"
                                       : "btn-outline-danger"
-                                  } w-100`}
+                                    } w-100`}
                                   onClick={() => setOrderAddress(address)}
                                 >
                                   {orderAddress === address
@@ -550,9 +548,8 @@ const Checkout = () => {
                         >
                           <div className="col-md-3">
                             <img
-                              src={`${
-                                import.meta.env.VITE_API_BASE_URL_LOCALHOST
-                              }/uploads/${product?.productId?.image[0]}`}
+                              src={`${import.meta.env.VITE_API_BASE_URL_LOCALHOST
+                                }/uploads/${product?.productId?.image[0]}`}
                               alt={product?.name}
                               className="img-fluid rounded"
                             />
@@ -589,7 +586,7 @@ const Checkout = () => {
                                   product?.qty === 1 || loadingIndex === index
                                 }
                               >
-                                    {loadingIndex === index ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : <FaMinus />}
+                                {loadingIndex === index ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : <FaMinus />}
 
                               </button>
                               <input
@@ -610,7 +607,7 @@ const Checkout = () => {
                                 }
                                 disabled={loadingIndex === index}
                               >
-                              {loadingIndex === index ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : <FaPlus />}
+                                {loadingIndex === index ? <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> : <FaPlus />}
                               </button>
                             </div>
 
@@ -738,12 +735,12 @@ const Checkout = () => {
                     <div className="d-flex justify-content-between mb-2">
                       <span>Delivery Fee:</span>
                       {salePriceTotal > 299 ? (
-                       <span>
+                        <span>
                           <span className="text-decoration-line-through">
                             ₹{deliveryCharge}{" "}
                           </span>
                           <span className="text-danger ms-2"> Free Delivery</span>
-                       </span>
+                        </span>
                       ) : (
                         <span>₹{deliveryCharge}</span>
                       )}
