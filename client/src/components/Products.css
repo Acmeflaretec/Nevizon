@@ -35,6 +35,8 @@
 
 .product-image {
   height: 350px;
+  object-fit: cover;
+  object-position: center;
   overflow: hidden;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
