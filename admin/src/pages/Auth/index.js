@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 import { useController } from 'context'
 import { setAuth } from 'context'
 import toast from 'react-hot-toast'
-import image from 'assets/images/android-chrome-512x512.png'
+import image from 'assets/images/logo.png'
 
 const Login = () => {
     const [controller, dispatch] = useController();
