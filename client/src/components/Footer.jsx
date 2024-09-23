@@ -12,7 +12,7 @@ function Footer() {
           <Col lg={4} md={6} className="footer-section">
             <h5 className="footer-title">About Us</h5>
             <p className="footer-description">
-            Nevizon is your one-stop destination for the latest and most exciting toys for kids of all ages.
+              Nevizon is your one-stop destination for the latest and most exciting toys for kids of all ages.
             </p>
             <div className="social-icons">
               <a href="https://www.facebook.com/profile.php?id=61561366147522&mibextid=LQQJ4d" target="_blank" className="social-icon"><FaFacebookF /></a>
@@ -32,7 +32,7 @@ function Footer() {
           <Col lg={3} md={6} className="footer-section">
             <h5 className="footer-title">Policies</h5>
             <ul className="footer-links">
-            <li><Link to={'/privacypolicy'}>Privacy Policy</Link></li>
+              <li><Link to={'/privacypolicy'}>Privacy Policy</Link></li>
               <li><Link to={'/cancellation'}>Cancellation & Refunds</Link></li>
               <li><Link to={'/returnpolicy'}>Return Policy</Link></li>
               <li><Link to={'/storepolicy'}>Store Policies</Link></li>
@@ -42,9 +42,12 @@ function Footer() {
           <Col lg={3} md={6} className="footer-section">
             <h5 className="footer-title">Contact Us</h5>
             <ul className="footer-contact">
-              <li><i className="fas fa-phone"></i> +91 7902832661</li>
-              <li><i className="fas fa-envelope"></i> Nevizonproductss@gmail.com</li>
-              <li><i className="fas fa-map-marker-alt"></i>Cherppulasseri, palakkad 679505</li>
+              <li><i className="fas fa-phone"></i>+918124666888,+9170258 53489 </li>
+              <li><i className="fas fa-envelope"></i>jhagencies.pmna@gmail.com</li>
+              <li><i className="fas fa-map-marker-alt"></i>Ground floor 32/1066.5.6
+                Town plaza building. Near Up. Complex, Calicut road. Perinthalmanna.
+                Kerala.32, pin: 679322
+              </li>
             </ul>
           </Col>
         </Row>
