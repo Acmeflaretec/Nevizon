@@ -139,9 +139,10 @@ const getProductsAdmin = async (req, res) => {
     const totalProducts = await Product.countDocuments(query);
     const products = await Product.find(query)
       .collation({ locale: 'en' }) // Enable case-insensitive search
-      .sort(sortOptions)
+      .sort({ createdAt: -1 })
+      // .sort(sortOptions)
       .skip((pageNumber - 1) * limitNumber)
-      .limit(limitNumber);
+      // .limit(limitNumber);
     //const data = await Product.find()
     res.status(200).json({ data:products })
   } catch (error) {

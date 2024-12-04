@@ -134,23 +134,24 @@ function Cart() {
               </Link>
             </div>
           ) : (
-            <div style={{ display: 'flex', gap: '2rem' }}>
-              <div style={{ flex: 1 }}>
+            <div className="cart-layout" style={{ display: 'flex', gap: '2rem' }}>
+              <div className="cart-items" style={{ flex: 1 }}>
                 {cartData?.item?.slice().reverse().map((item, index) => (
-                  <div key={item?._id} style={{ border: '1px solid #dee2e6', borderRadius: '0.25rem', marginBottom: '1rem', boxShadow: '0 0 0.5rem rgba(0, 0, 0, 0.1)' }}>
+                  <div  key={item?._id} className="cart-item" style={{ border: '1px solid #dee2e6', borderRadius: '0.25rem', marginBottom: '1rem', boxShadow: '0 0 0.5rem rgba(0, 0, 0, 0.1)' }}>
                     <div style={{ display: 'flex', flexDirection: 'row' }}>
                       <div style={{ flex: '0 0 25%', padding: '1rem' }}>
                         <img
                           src={`${import.meta.env.VITE_API_BASE_URL_LOCALHOST}/uploads/${item?.productId?.image[0]}`}
                           alt={item?.productId?.name}
                           style={{ width: '100%', borderRadius: '0.25rem' }}
+                          className="cart-item-image"
                         />
                       </div>
-                      <div style={{ flex: '1', padding: '1rem' }}>
+                      <div style={{ flex: '1', padding: '1rem' }} className="cart-item-details">
                         <h5 style={{ color: '#e63946' }}>{item?.productId?.name}</h5>
                         <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
                           <p style={{ fontWeight: 'bold', margin: '0 1rem 0 0' }}>₹{item?.productId?.sale_rate}</p>
-                          <span style={{ color: '#6c757d', textDecoration: 'line-through', marginRight: '0.5rem' }}>₹{item?.productId?.price}</span>
+                          <span className="original-price" style={{ color: '#6c757d', textDecoration: 'line-through', marginRight: '0.5rem' }}>₹{item?.productId?.price}</span>
                           <span style={{ backgroundColor: '#f1faee', padding: '0.25rem 0.5rem', borderRadius: '0.25rem', color: '#e63946' }}>{item?.productId?.discount}% off</span>
                         </div>
                         <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -182,8 +183,16 @@ function Cart() {
                           <button
                             style={{ border: '1px solid #e63946', borderRadius: '0.25rem', backgroundColor: '#e63946', color: '#ffffff', padding: '0.5rem 1rem', cursor: 'pointer' }}
                             onClick={() => handleRemoveItem(item?._id)}
+                            className="d-none d-lg-block"
                           >
                             <FaTrash style={{ marginRight: '0.5rem' }} /> Remove
+                          </button>
+                          <button
+                            style={{ border: '1px solid #e63946', borderRadius: '0.25rem', backgroundColor: '#e63946', color: '#ffffff', padding: '0.3rem', cursor: 'pointer' }}
+                            onClick={() => handleRemoveItem(item?._id)}
+                            className="w-100 d-block d-lg-none"
+                          >
+                            <FaTrash/>
                           </button>
                         </div>
                       </div>
@@ -191,7 +200,7 @@ function Cart() {
                   </div>
                 ))}
               </div>
-              <div style={{ width: '300px', padding: '1rem', border: '1px solid #dee2e6', borderRadius: '0.25rem', boxShadow: '0 0 0.5rem rgba(0, 0, 0, 0.1)' }}>
+              <div className="cart-summary" style={{ width: '300px', padding: '1rem', border: '1px solid #dee2e6', borderRadius: '0.25rem', boxShadow: '0 0 0.5rem rgba(0, 0, 0, 0.1)' }}>
                 <h5 style={{ color: '#e63946' }}>Cart Summary</h5>
                 <div style={{ marginBottom: '1rem' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
@@ -231,6 +240,67 @@ function Cart() {
         </div>
       )}
       <Footer />
+      <style jsx>{`
+        .cart-container {
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        }
+        .cart-content {
+          padding: 1rem;
+          flex-grow: 1;
+        }
+        .cart-layout {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 2rem;
+        }
+        .cart-items {
+          flex: 2;
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+        .cart-summary {
+          flex: 1;
+          border: 1px solid #dee2e6;
+          border-radius: 0.5rem;
+          padding: 1rem;
+        }
+        .cart-item {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          border: 1px solid #dee2e6;
+          border-radius: 0.5rem;
+          padding: 1rem;
+        }
+        .cart-item-image {
+          max-width: 100px;
+          border-radius: 0.5rem;
+        }
+        .cart-item-details {
+          flex-grow: 1;
+        }
+        .cart-item-quantity button {
+          margin: 0 0.5rem;
+        }
+        .checkout-btn {
+          width: 100%;
+        }
+        @media (max-width: 768px) {
+          .cart-layout {
+            flex-direction: column;
+          }
+          .cart-item {
+            flex-direction: column;
+            align-items: center;
+          }
+          .cart-summary {
+            margin-top: 1rem;
+          }
+        }
+      `}</style>
     </div>
   );
 }

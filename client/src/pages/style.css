@@ -1,0 +1,97 @@
+.search{
+    display: flex;
+    justify-content: space-between;
+}
+.product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    /* padding: 16px; */
+    background: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.price-info {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: baseline;
+}
+
+.discount-badge {
+    color: #ff5722;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 767px) {
+    .product-info .product-title {
+        font-size: 12px;
+        overflow: hidden;
+    }
+
+    .price-info {
+        display: flex;
+    }
+
+    .price-info .current-price {
+        font-size: 14px;
+    }
+
+    .price-info .original-price {
+        font-size: 12px;
+    }
+    .price-info .discount-badge {
+        font-size: 10px;
+    }
+    .price-info .product-quantity {
+        font-size: 10px;
+        overflow: hidden;
+    }
+    .product-actions .buttonSize {
+        font-size: 10px;
+    }
+    .search{
+        margin-bottom: 15px;
+    }
+}
+
+
+.whatsapp-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  
+  .whatsapp-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  .whatsapp-icon i {
+    font-size: 28px;
+  }
+  
+  .whatsapp-icon.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+  

@@ -1,7 +1,10 @@
 const User = require("../models/user");
 const Otp = require('../models/otp')
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcrypt");    
 const jwt = require("jsonwebtoken");
+const dotenv = require('dotenv');
+dotenv.config();
+const axios = require('axios');
 
 // module.exports.signup = async (req, res) => {
 //   const { username, password, email, phone,clientOtp } = req?.body;
@@ -282,4 +285,98 @@ module.exports.getCurrentUser = async (req, res) => {
       .status(500)
       .json({ message: err?.message ?? "Something went wrong" });
   }
+};
+
+
+
+
+
+let otpStore = {};
+
+// module.exports.sendOtp = async (req, res) => {    
+//   const { number } = req.body;
+//   console.log('number',number);
+//   const otp = Math.floor(100000 + Math.random() * 900000).toString();
+//   // const otp = '123456'
+//   console.log('otp',otp);
+//   otpStore[number] = otp;
+
+ 
+//   const options = {   
+//     authorization: process.env.FAST2SMS_API_KEY,   
+//     message: `Your OTP is: ${otp}`,
+//     numbers: [number]
+//   };
+//   console.log('options',options);
+  
+//   try {
+//     await fast2sms.sendMessage(options);
+//     res.status(200).json({ message: 'OTP sent successfully' });
+//   } catch (error) {
+//     res.status(500).json({ message: 'Failed to send OTP', error: error.message });
+//   }
+// };
+
+module.exports.sendOtp = async (req, res) => {
+  const { number } = req.body;
+
+  const otp = Math.floor(100000 + Math.random() * 900000).toString();
+  otpStore[number] = otp;
+  console.log('Generated OTP:', otp);
+  console.log('process.env.FAST2SMS_API_KEY', process.env.FAST2SMS_API_KEY);
+
+  const options = {
+    method: 'POST',
+    url: 'https://www.fast2sms.com/dev/bulkV2',
+    headers: {
+      authorization: process.env.FAST2SMS_API_KEY,
+    },   
+    data: {
+      route: 'q',
+      message: `Your Nevizon OTP is: ${otp}`,     
+      language: 'english',
+      flash: 0,
+      numbers: number,
+    },
+  };
+
+  try {
+    const response = await axios(options);
+    console.log('Fast2SMS response:', response.data);
+    res.status(200).json({ message: 'OTP sent successfully' });
+  } catch (error) {
+    console.error('Error sending OTP:', error.response?.data || error.message);
+    res.status(500).json({ message: 'Failed to send OTP', error: error.message });
+  }
+};
+
+module.exports.verifyOtp = async (req, res) => {  
+  const { number, otp  } = req.body;  
+  console.log('number, otp',number, otp);
+
+  if (otpStore[number] !== otp) {
+    return res.status(400).json({ message: 'Invalid OTP' });
+  }
+
+  let user = await User.findOne({ phone:number });
+  
+
+  if (!user) {   
+    user = new User({ phone:number });
+     
+    await user.save();   
+  }  
+
+  const accessToken = jwt.sign({ _id: user._id }, process.env.JWT_ACCESS_SECRET, {
+    expiresIn: process.env.JWT_ACCESS_EXPIRY,
+  });
+
+  const refreshToken = jwt.sign({ _id: user._id }, process.env.JWT_REFRESH_SECRET, {
+    expiresIn: process.env.JWT_REFRESH_EXPIRY,
+  });
+
+  res.status(200).json({
+    message: 'Login successful',
+    data: { token: { accessToken, refreshToken }, user }
+  });
 };

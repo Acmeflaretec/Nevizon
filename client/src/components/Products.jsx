@@ -20,7 +20,7 @@ function Products({ setNotification }) {
 
   const fetchProducts = async () => {
     try {
-      const response = await axiosInstance.get(`/products?page=1&limit=8&sortField=createdAt&sortOrder=desc`);
+      const response = await axiosInstance.get(`/products?page=1&limit=6&sortField=createdAt&sortOrder=desc`);
       setProducts(response?.data?.data);
       const wishlistResponse = await axiosInstance.get('/user/getwishlist');
       setWishlistItems(wishlistResponse?.data?.data);
@@ -131,7 +131,7 @@ function Products({ setNotification }) {
             >
               Our Products
             </motion.h2>
-            <Row>
+            {/* <Row>
               {products.map((item, index) => (
                 <Col key={item._id} md={4} className="mb-4">
                   <motion.div 
@@ -180,6 +180,102 @@ function Products({ setNotification }) {
                         <Button variant="dark" size="sm" onClick={() => navigate('/cart')}>
                           <i className="fas fa-shopping-cart"></i> Go to Cart
                         </Button>
+                      )}
+                    </div>
+                  </motion.div>
+                </Col>
+              ))}
+            </Row> */}
+            <Row className="justify-content-center">
+              {products.map((item, index) => (
+                <Col
+                  key={item?._id}
+                  xs={6}
+                  sm={6}
+                  md={4}
+                  className="mb-4 d-flex align-items-stretch"
+                >
+                  <motion.div
+                    className="product-card"
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Link to={`/product/${item._id}`} className="product-link">
+                      <div className="product-image d-none d-lg-block">
+                        <img
+                          src={`${import.meta.env.VITE_API_BASE_URL_LOCALHOST}/uploads/${item?.image[0]}`}
+                          alt={item?.name}
+                          className="img-fluid"
+                        />
+                      </div>
+                      <div className="w-100 d-block d-lg-none" style={{ height: '192px' }}>
+                        <img
+                          src={`${import.meta.env.VITE_API_BASE_URL_LOCALHOST}/uploads/${item?.image[0]}`}
+                          alt={item?.name}
+                          className="w-100 h-100"
+                          style={{ objectFit: 'cover' }}
+                        />
+                      </div>
+
+                      <div className="product-info">
+                        <h3 className="product-title">{item?.name}</h3>
+                        <div className="price-info">
+                          <div>
+                            <span className="current-price">₹{item?.sale_rate}</span>
+                            <span className="original-price">₹{item?.price}</span>
+
+                          </div>
+                          <span className="discount-badge">{item?.discount}% off</span>
+
+                        </div>
+                        <p className="product-quantity">
+                          {truncateText(item?.subheading, 20)}
+                        </p>
+                      </div>
+                    </Link>
+                    <div className="product-actions">
+                      {!isInWishlist(item?._id) ? (
+                        <button
+                          className="btn btn-outline-success btn-sm"
+                          onClick={() => addWishlist(item?._id)}
+                        >
+                          <i className="fa-solid fa-heart"></i>
+                        </button>
+                      ) : (
+                        <button
+                          className="btn btn-outline-danger btn-sm"
+                          onClick={() => removeWishlist(item?._id)}
+                        >
+                          <i className="fa-solid fa-heart"></i>
+                        </button>
+                      )}
+
+                      {!isInCart(item?._id) ? (
+                        <button
+                          className="btn btn-success btn-sm buttonSize"
+                          onClick={() => addCart(item?._id)}
+                          disabled={loading[item?._id]}
+                        >
+                          {loading[item?._id] ? (
+                            <span
+                              className="spinner-border spinner-border-sm"
+                              role="status"
+                              aria-hidden="true"
+                            ></span>
+                          ) : (
+                            <>
+                              <i className="fas fa-shopping-cart"></i> Add to Cart
+                            </>
+                          )}
+                        </button>
+                      ) : (
+                        <button
+                          className="btn btn-warning btn-sm buttonSize"
+                          onClick={() => navigate('/cart')}
+                        >
+                          <i className="fas fa-shopping-cart"></i> Go to Cart
+                        </button>
                       )}
                     </div>
                   </motion.div>

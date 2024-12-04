@@ -12,6 +12,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { IconButton } from '@mui/material';
 import CancelIcon from '@mui/icons-material/Cancel';
+import ImageList from './ImageList';
 
 
 const AddProduct = () => {
@@ -49,14 +50,15 @@ const AddProduct = () => {
     console.log(category);
   }, [category])
   const handleSubmit = () => {
-    console.log(details);
-    console.log(images);
     try {
    
       const formData = new FormData();
-      images?.forEach((image) => {
+      details?.image?.forEach((image) => {
         formData.append('images', image, image.name);
       });
+      // images?.forEach((image) => {
+      //   formData.append('images', image, image.name);
+      // });
       for (const key in details) {
         if (details.hasOwnProperty(key) && key !== "image") {
           formData.append(key, details[key]);
@@ -228,7 +230,8 @@ const AddProduct = () => {
         
         <Grid item container spacing={2} xs={12} sm={12} md={6} py={5}>
           <Grid xs={12}>
-            <DropZone dispatch={setImage} />
+            {/* <DropZone dispatch={setImage} /> */}
+            <ImageList data={details?.image} dispatch={setDetails} />
           </Grid>
           <Grid item xs={12} sm={8}></Grid>
           <Grid item xs={12} sm={4} mt={'auto'}>

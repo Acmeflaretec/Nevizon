@@ -350,10 +350,11 @@ const EditProduct = () => {
   const handleSubmit = async () => {
     try {
       const formData = new FormData();
-      const image = details?.image?.filter((image) => typeof image === 'string');
+      
+      const image = details?.image?.filter((image) => typeof (image) === 'string');
       formData.append('image', JSON.stringify(image));
       details?.image?.forEach((image) => {
-        if (typeof image === 'object') {
+        if (typeof (image) === 'object') {
           formData.append('images', image, image.name);
         }
       });
@@ -528,6 +529,7 @@ const EditProduct = () => {
           <Grid item container spacing={2} xs={12} sm={12} md={6}>
             <Grid sx={{ width: '100%' }}>
               <ImageList data={details?.image} dispatch={setDetails} />
+
             </Grid>
           </Grid>
         </Grid>

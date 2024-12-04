@@ -23,7 +23,7 @@ const Checkout = () => {
   const [salePriceTotal, setSalePriceTotal] = useState(0);
   const [proPriceTotal, setProPriceTotal] = useState(0);
   const [discountTotal, setDiscountTotal] = useState(0);
-  const deliveryCharge = 30;
+  const deliveryCharge = 80;
 
   const [addressDatas, setAddressDatas] = useState([]);
   const [orderAddress, setOrderAddress] = useState({});
@@ -333,7 +333,7 @@ const Checkout = () => {
 
   const placeOrder = async () => {
 
-    const totalAmountToPay = salePriceTotal < 299
+    const totalAmountToPay = salePriceTotal < 500
       ? salePriceTotal + deliveryCharge
       : salePriceTotal;
 
@@ -734,7 +734,7 @@ const Checkout = () => {
                     </div>
                     <div className="d-flex justify-content-between mb-2">
                       <span>Delivery Fee:</span>
-                      {salePriceTotal > 299 ? (
+                      {salePriceTotal > 500 ? (
                         <span>
                           <span className="text-decoration-line-through">
                             ₹{deliveryCharge}{" "}
@@ -754,7 +754,7 @@ const Checkout = () => {
                       <span>Total:</span>
                       <span>
                         ₹
-                        {salePriceTotal < 299
+                        {salePriceTotal < 500
                           ? salePriceTotal + deliveryCharge
                           : salePriceTotal}
                       </span>

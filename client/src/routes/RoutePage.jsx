@@ -27,6 +27,8 @@ import ReturnPolicy from "../pages/policies/ReturnPolicy";
 import StorePolicy from "../pages/policies/StorePolicy";
 import TermsOfService from "../pages/policies/TermsOfServicce";
 
+import WhatsAppIcon from "../pages/WhatsAppIcon";
+
 //password reset
 import Otp from "../pages/resetPassword/Otp";
 import Reset from "../pages/resetPassword/Reset";
@@ -75,6 +77,7 @@ function RoutePage() {
 
             <Route path="*" element={<PageNotFound />} />
           </Routes>
+          <WhatsAppIcon />
         </PersistGate>
       </Provider>
     </>
