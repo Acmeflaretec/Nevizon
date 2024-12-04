@@ -6,9 +6,16 @@
 }
 
 .logo {
-  height: 80px;
+  height: 100px;
   width: auto;
 }
+@media only screen and (max-width: 767px) {
+  .logo {
+    height: 80px;
+    width: auto;
+  }
+}
+
 
 .navbar-nav .nav-link {
   color: #ff0000; /* Red text */
