@@ -19,7 +19,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(to right, #ff0000, #cc0000); /* Red gradient */
+  background: linear-gradient(to right, #ff0000, #cc0000); 
   z-index: 1;
 }
 

@@ -64,7 +64,7 @@ function Banner() {
                   </Link>
                 </div>
               </motion.div>
-              <motion.div
+              {/* <motion.div
                 className="col-lg-6 banner-image-container"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -81,7 +81,7 @@ function Banner() {
                     </Carousel.Item>
                   ))}
                 </Carousel>
-              </motion.div>
+              </motion.div> */}
             </div>
           </div>
         </div>
