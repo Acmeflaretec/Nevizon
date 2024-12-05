@@ -35,7 +35,7 @@ const WhoAreWe = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="image-wrapper">
-              <img src="who.jpg" alt="Eco-friendly products" className="img-fluid rounded" />
+              <img src="logo.png" alt="Eco-friendly products" className="img-fluid rounded" />
             </div>
           </motion.div>
         </div>

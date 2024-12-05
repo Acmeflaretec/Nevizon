@@ -8,6 +8,7 @@ import WhoAreWe from '../components/WhoAreWe';
 import WhyChooseUs from '../components/WhyChooseUs';
 import HomeContact from '../components/HomeContact';
 import LoadingScreen from "../components/loading/LoadingScreen";
+import HomeCategory from '../components/HomeCategory';
 
 
 function Home() {
@@ -19,6 +20,7 @@ function Home() {
     
      <MiddleNav notification={notif}/>
      <Banner/>
+     <HomeCategory/>
      <WhoAreWe/>
      <Products setNotification={setNotif} />
      <WhyChooseUs/>
