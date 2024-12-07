@@ -10,9 +10,9 @@ const About = () => {
       <div className="bg-light py-5">
         <Container>
           <Row className="justify-content-center align-items-center">
-            <Col lg={6} className="mb-4 mb-lg-0">
+            <Col lg={6} className="mb-10 mb-lg-0">
               <Image
-                src="who.jpg"
+                src="logo.png"
                 alt="About"
                 fluid
                 rounded
@@ -33,7 +33,11 @@ const About = () => {
                
 Founded with a passion for providing the best toys in the market, Nevizon has become a go-to destination for parents seeking safe, innovative, and fun products for their children. We understand that every child is unique, with different interests and developmental needs, which is why our collection includes a diverse array of toys—from educational tools that encourage cognitive growth to playful items that spark creativity and adventure.
                 </p>
-                <p>
+                
+              </div>
+            </Col>
+            <Col>
+            <p>
                   
 Our commitment to quality is unwavering. We work closely with reputable manufacturers to ensure that every toy we offer meets the highest standards of safety and durability. We take pride in offering toys that are made from non-toxic, eco-friendly materials, giving parents peace of mind while their children explore and play.
                 </p>
@@ -50,8 +54,7 @@ But Nevizon is more than just a toy store—we’re a community. We are dedicate
 
                 Thank you for choosing Nevizon. We are excited to be a part of your child’s journey, bringing smiles, laughter, and learning to playtime. Explore our collection today and discover why Nevizon is the ultimate destination for toys that inspire, educate, and delight!
                 </p>
-              </div>
-            </Col>
+                </Col>
           </Row>
         </Container>
       </div>

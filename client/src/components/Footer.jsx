@@ -42,12 +42,16 @@ function Footer() {
           <Col lg={3} md={6} className="footer-section">
             <h5 className="footer-title">Contact Us</h5>
             <ul className="footer-contact">
-              <li><i className="fas fa-phone"></i>+918124666888,+9170258 53489 </li>
-              <li><i className="fas fa-envelope"></i>jhagencies.pmna@gmail.com</li>
+              <li><i className="fas fa-phone"></i>+91 9946887787 </li>
+              <li><i className="fas fa-envelope"></i>info@nevizon.in </li>
               <li><i className="fas fa-map-marker-alt"></i>Ground floor 32/1066.5.6
                 Town plaza building. Near Up. Complex, Calicut road. Perinthalmanna.
                 Kerala.32, pin: 679322
               </li>
+              <li><strong>Trade Name:</strong> JH Agencies
+
+</li>
+              <li><strong>Brand Name:</strong> nevizon.in</li>
             </ul>
           </Col>
         </Row>

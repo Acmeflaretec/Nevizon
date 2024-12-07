@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 @font-face {
   font-family: 'BlockBerthold';
   src: url('blockberthold.otf') format('opentype');
@@ -8,7 +8,7 @@
 
 .banner {
   position: relative;
-  background-color: #ffffff; /* White background */
+  background-color: #ffffff; 
   padding: 6rem 0;
   overflow: hidden;
 }
@@ -26,7 +26,7 @@
 .banner-content {
   position: relative;
   z-index: 2;
-  color: #ffffff; /* White text */
+  color: #ffffff; 
 }
 
 .banner-title {
@@ -39,7 +39,7 @@
 }
 
 .banner-title .highlight {
-  color: #ff0000; /* Red highlight */
+  color: #ff0000; 
 }
 
 .banner-subtitle {
@@ -47,7 +47,7 @@
   font-size: 1.25rem;
   margin-bottom: 2rem;
   max-width: 80%;
-  color: #ffffff; /* White subtitle text */
+  color: #ffffff;
 }
 
 .ban-button {
@@ -55,20 +55,20 @@
 }
 
 .btn-primary {
-  background-color: #ffffff; /* Red button */
-  border-color: #ffffff; /* Red border */
+  background-color: #ffffff; 
+  border-color: #ffffff;
   padding: 0.75rem 2rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s ease;
-  color: black; /* White text */
+  color: black; 
 }
 
 .btn-primary:hover,
 .btn-primary:focus {
-  background-color: #dc9797; /* Darker red on hover/focus */
-  border-color: #cc0000; /* Darker red border */
+  background-color: #dc9797; 
+  border-color: #cc0000; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -95,7 +95,67 @@
     font-size: 1.1rem;
   }
 
-  .banner-image-container {
-    margin-top: 3rem;
+} */
+/* .banner-image-container {
+  margin-top: 3rem;
+} */
+
+
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
+  background-color: #f8f9fa;
+  position: relative;
+  overflow: hidden;
+  padding: 10px;
+}
+
+.banner-image-container {
+  position: relative;
+  text-align: center;
+}
+
+.carousel .carousel-item {
+  text-align: center;
+}
+
+.banner-content {
+  position: absolute;
+  bottom: 10%; /* Adjust as needed */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.explore-button {
+  padding: 8px 16px; /* Smaller button size */
+  font-size: 14px; /* Smaller font size */
+  background-color: #c8102e;
+  border: none;
+  color: #fff;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.explore-button:hover {
+  background-color: #e03a3e; /* Darker red on hover */
+}
+
+@media (max-width: 768px) {
+  .explore-button {
+    padding: 6px 12px;
+    font-size: 10px;
+  }
+
+  .banner {
+    height: auto; /* Adjust height for mobile */
+    padding: 5px;
+  }
+
+  .banner-content {
+    bottom: 5%; /* Adjust position for mobile */
   }
 }
