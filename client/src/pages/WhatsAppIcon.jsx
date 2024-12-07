@@ -21,7 +21,7 @@ const WhatsAppIcon = () => {
   }, []);
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = "+918124666888";
+    const phoneNumber = "+919946887787";
     const message = "Hello! I have an inquiry."; 
     const encodedMessage = encodeURIComponent(message);
     window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, "_blank");
