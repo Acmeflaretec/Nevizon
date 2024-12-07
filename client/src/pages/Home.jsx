@@ -21,8 +21,8 @@ function Home() {
      <MiddleNav notification={notif}/>
      <Banner/>
      <HomeCategory/>
-     <WhoAreWe/>
      <Products setNotification={setNotif} />
+     <WhoAreWe/>
      <WhyChooseUs/>
      <HomeContact/>
      <Footer/>
