@@ -88,9 +88,9 @@
 .discount-badge {
   background-color: #d32f2f; /* Red */
   color: #ffffff; /* White text */
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 0.2rem;
   border-radius: 3px;
-  font-size: 0.8rem;
+  font-size: 0.5rem;
 }
 
 .product-quantity {

@@ -302,7 +302,7 @@ function HomeCategory() {
         <ScrollButton className="left" onClick={() => scroll('left')}>
           ‹
         </ScrollButton>
-        <CategoryScroll ref={scrollRef} style={{ display: 'flex', justifyContent: 'center' }}>
+        <CategoryScroll ref={scrollRef} style={{ display: 'flex'}}>
           {categories.map((category) => (
             <CategoryCard key={category._id} onClick={() => handleCategoryClick(category)}>
               <CategoryImage src={`${import.meta.env.VITE_API_BASE_URL_LOCALHOST}/uploads/${category.image}`} alt={category.name} />
