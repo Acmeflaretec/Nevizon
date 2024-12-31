@@ -123,14 +123,14 @@ function Products({ setNotification }) {
       ) : (
         <section className="products-section">
           <Container>
-            <motion.h2 
+            {/* <motion.h2 
               className="section-title text-danger"
               initial={{ opacity: 0, y: -50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
               Our Products
-            </motion.h2>
+            </motion.h2> */}
             {/* <Row>
               {products.map((item, index) => (
                 <Col key={item._id} md={4} className="mb-4">
@@ -229,9 +229,9 @@ function Products({ setNotification }) {
                           <span className="discount-badge">{item?.discount}% off</span>
 
                         </div>
-                        <p className="product-quantity">
+                        {/* <p className="product-quantity">
                           {truncateText(item?.subheading, 20)}
-                        </p>
+                        </p> */}
                       </div>
                     </Link>
                     <div className="product-actions">
