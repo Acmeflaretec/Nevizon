@@ -386,9 +386,9 @@ const Allproducts = () => {
                           <span className="discount-badge">{item?.discount}% off</span>
 
                         </div>
-                        <p className="product-quantity">
+                        {/* <p className="product-quantity">
                           {truncateText(item?.subheading, 20)}
-                        </p>
+                        </p> */}
                       </div>
                     </Link>
                     <div className="product-actions">
